@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Mulish:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple__color: #5c30f5;
+  --light__shade: #f3f4f9;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  background-color: var(--light__shade);
+}
+
+/* Common styles for all pages */
+.text__center {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space__between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.error__input {
+  border-bottom: 1px solid red !important;
+}
+
+.error_msg {
+  color: red;
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+
+.error_msg::before {
+  content: "*";
+}
