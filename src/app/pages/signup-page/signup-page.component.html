@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="login__wrapper">
+    <div class="login__image">
+      <img src="images/sign-up.png" alt="Login Image" />
+    </div>
+    <div class="login__form">
+      <h2 class="login__heading">Welcome Back 👋</h2>
+      <p class="login__details">Please enter login details below</p>
+      <form [formGroup]="form">
+        <div class="input__field">
+          <label>Name</label>
+          <input
+            type="name"
+            placeholder="Name"
+            name="email"
+            formControlName="name"
+            [ngClass]="{
+              error__input:
+                form.get('name')?.touched && form.get('name')?.invalid
+            }"
+          />
+          <div
+            *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+            class="error_msg"
+          >
+            <span *ngIf="form.get('name')?.hasError('required')"
+              >Name is required</span
+            >
+          </div>
+        </div>
+        <div class="input__field">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            formControlName="email"
+            [ngClass]="{
+              error__input:
+                form.get('email')?.touched && form.get('email')?.invalid
+            }"
+          />
+          <div
+            *ngIf="form.get('email')?.touched && form.get('email')?.invalid"
+            class="error_msg"
+          >
+            <span *ngIf="form.get('email')?.hasError('required')"
+              >Email is required</span
+            >
+            <span *ngIf="form.get('email')?.hasError('email')"
+              >Please enter a valid email</span
+            >
+          </div>
+        </div>
+        <div class="input__field">
+          <label>Password</label>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="Password"
+            name="password"
+            formControlName="password"
+            [ngClass]="{
+              error__input:
+                form.get('password')?.touched && form.get('password')?.invalid
+            }"
+          />
+          <lucide-angular
+            [img]="showPassword ? eyeOff : eye"
+            class="my-icon"
+            (click)="showPassword = !showPassword"
+          ></lucide-angular>
+          <div
+            *ngIf="
+              form.get('password')?.touched && form.get('password')?.invalid
+            "
+            class="error_msg"
+          >
+            <span *ngIf="form.get('password')?.hasError('required')"
+              >password is required</span
+            >
+            <span *ngIf="form.get('password')?.hasError('minlength')">
+              Password must be at least 8 characters long
+            </span>
+          </div>
+        </div>
+        <button class="singup__btn" type="submit" (click)="checkUser()">
+          SIGN UP
+        </button>
+        <div class="sign__up">
+          <a [routerLink]="['/signup']"
+            >Already have an account? Login now..!
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
